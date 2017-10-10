@@ -1,25 +1,34 @@
 class BestPizza::CLI
 
 	def call
-		puts "Best Pizzas in New York City"
 		list_restaurants
 		menu
+		repeat
 	end
 
 	def list_restaurants
 		puts "====================== Best Pizza in New York ======================"
-		puts "  1.  restaurant name    -- location"
-		puts "  2.  restaurant name    -- location"
+		puts ""
+		@restaurants = BestPizza::Resturant.all
+
 	end
 
 	def menu
-		puts "What restaurant would you like more information on?"
-		input = gets.strip.downcase
+		input = nil
+		while input != "exit"
+			puts ""
+			puts "What restaurant would you like more information on?"
+			input = gets.strip.downcase
 
-		resturant_card
+			if input.to_i > 0
+				resturant_card
+			elsif input == "exit"
+				thanks
+			else
+				puts "Not sure what you're looking for, type 1-25 or 'exit'"
+			end
+		end		
 	end
-
-		
 
 	def resturant_card
 		puts "======================    restaurant name    ======================"
@@ -32,10 +41,24 @@ class BestPizza::CLI
 		puts "  ------------------------ Description ------------------------"
 		puts "  description....."
 		puts ""
+
+		repeat
+	end
+
+	def repeat
+		puts ""
+		puts "Would you like to see another restaurant? Enter Y or N"
+		input = gets.strip.downcase
+		if input == "y"
+			call
+		else 
+			thanks
+		end
 	end
 
 	def thanks 
 		puts "Thanks! Enjoy your pizza!"
+		exit
 	end
 
 end
