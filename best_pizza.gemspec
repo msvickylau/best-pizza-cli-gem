@@ -6,13 +6,14 @@ require "best_pizza/version"
 Gem::Specification.new do |spec|
   spec.name          = "best_pizza"
   spec.version       = BestPizza::VERSION
-  spec.authors       = ["TODO: Write your name"]
+  spec.authors       = ["Vicky Lau"]
   spec.email         = ["vlau.nyc@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.description   = %q{Best Pizzas in New York}
+  spec.summary       = %q{This Ruby Gem provides a CLI to view the 25 best pizzas in New York as per Time Out - New York website.}
+  spec.homepage      = "https://github.com/vlaunyc/best-pizza-cli-gem"
   spec.license       = "MIT"
+
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
@@ -30,7 +31,10 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.16.a"
+  spec.add_development_dependency "bundler", "~> 1.15"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency "pry"
+
+  spec.add_dependency "nokogiri"
 end

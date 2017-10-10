@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require_relative './lib/best_pizza'
+
+BestPizza::CLI.new.call
