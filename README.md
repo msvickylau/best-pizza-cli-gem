@@ -1,28 +1,24 @@
 # BestPizza
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/best_pizza`. To experiment with that code, run `bin/console` for an interactive prompt.
+This Ruby Gem provides a CLI to view the 25 best pizzas in New York as per Time Out - New York website
 
-TODO: Delete this and the text above, and describe your gem
+
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
 ```ruby
-gem 'best_pizza'
+$ gem install best-pizza
 ```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install best_pizza
 
 ## Usage
 
-TODO: Write usage instructions here
+Type the below and follow the prompts
+
+```ruby
+ $ best-pizza
+ ```
+
 
 ## Development
 

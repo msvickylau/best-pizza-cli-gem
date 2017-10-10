@@ -1,1 +1,2 @@
-scraper.rb
+class BestPizza::Scraper
+end

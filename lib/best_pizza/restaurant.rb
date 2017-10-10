@@ -1,1 +1,2 @@
-restaurant.rb
+class BestPizza::Resturant
+end
