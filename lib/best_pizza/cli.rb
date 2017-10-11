@@ -1,45 +1,48 @@
 class BestPizza::CLI
 
 	def call
-		list_restaurants
+		BestPizza::Resturant.scrape_pizza
+		list_pizza
 		menu
 		repeat
 	end
 
-	def list_restaurants
-		puts "====================== Best Pizza in New York ======================"
+	def list_pizza
+		puts "====================== Best New York Pizza ======================"
 		puts ""
-		@restaurants = BestPizza::Resturant.all
-
+		@pizzas = BestPizza::Resturant.pizza_restaurants
+		@pizzas.each.with_index(1) do |pizza, i|
+			puts "#{i}. #{pizza.name}" #" -- #{restaurant.location}"
+		end
 	end
 
 	def menu
 		input = nil
 		while input != "exit"
 			puts ""
-			puts "What restaurant would you like more information on?"
+			puts "Which delicious pizza restaurant would you like more information on?"
 			input = gets.strip.downcase
 
-			if input.to_i > 0
+			if input.to_i.between?(1,87)
+				@resturant = BestPizza::Resturant.find(input.to_i)
 				resturant_card
 			elsif input == "exit"
 				thanks
 			else
-				puts "Not sure what you're looking for, type 1-25 or 'exit'"
+				puts "Not sure what you're looking for, type 1-87 or 'exit'"
 			end
 		end		
 	end
 
 	def resturant_card
-		puts "======================    restaurant name    ======================"
-		puts "  Address:"
-		puts "  Cross street:"
-		puts "  Opening hours:"
-		puts "  Transport:"
-		puts "  Price:"
-		puts "  telephone:"
-		puts "  ------------------------ Description ------------------------"
-		puts "  description....."
+		puts "================= #{pizza.name} ================="
+		puts ""
+		puts " #{pizza.description}"
+		puts ""
+		puts "------------------------------------------------------"
+		puts ""
+		puts " "
+		puts "  AREA: 					#{pizza.area}"
 		puts ""
 
 		repeat
@@ -60,5 +63,4 @@ class BestPizza::CLI
 		puts "Thanks! Enjoy your pizza!"
 		exit
 	end
-
 end
