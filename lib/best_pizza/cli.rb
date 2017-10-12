@@ -28,17 +28,18 @@ class BestPizza::CLI
 			# if input.to_i.between?(1,11)
 
 			if input.to_i > 0 && input.to_i <= BestPizza::Resturant.pizza_restaurants.size
-				restaurant = BestPizza::Resturant.find(input)
+				pizza = BestPizza::Resturant.find(input)
 				# restaurant_card(restaurant)
-
+				puts ""
 				puts "================= #{pizza.name} ================="
 				puts ""
-				puts " #{pizza.description}"
+				puts "#{pizza.address}"
+				puts "#{pizza.telephone}"
+				puts "#{pizza.neighborhood}"
 				puts ""
 				puts "------------------------------------------------------"
 				puts ""
-				puts " "
-				puts " "
+				puts "#{pizza.description}"
 				puts ""
 
 				repeat
@@ -58,7 +59,7 @@ class BestPizza::CLI
 		puts "Would you like to see another restaurant? Enter Y or N"
 		input = gets.strip.downcase
 		if input == "y"
-			call
+			menu
 		else 
 			thanks
 		end

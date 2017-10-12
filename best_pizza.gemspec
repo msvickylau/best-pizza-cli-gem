@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["vlau.nyc@gmail.com"]
 
   spec.description   = %q{Best Pizzas in New York}
-  spec.summary       = %q{This Ruby Gem provides a CLI to view the 25 best pizzas in New York as per Time Out - New York website.}
+  spec.summary       = %q{This Ruby Gem provides a CLI to view the 11 best pizzas in New York as per tripsavvy website.}
   spec.homepage      = "https://github.com/vlaunyc/best-pizza-cli-gem"
   spec.license       = "MIT"
 
