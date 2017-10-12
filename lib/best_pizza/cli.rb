@@ -5,6 +5,7 @@ class BestPizza::CLI
 		list_pizza
 		menu
 		repeat
+		thanks
 	end
 
 	def list_pizza
@@ -13,7 +14,7 @@ class BestPizza::CLI
 		puts ""
 		@pizzas = BestPizza::Resturant.pizza_restaurants
 		@pizzas.each.with_index(1) do |pizza, i|
-			puts "#{i}. #{pizza.name}" #" -- #{restaurant.location}"
+			puts "#{i}. #{pizza.name}" 
 		end
 	end
 
@@ -33,11 +34,11 @@ class BestPizza::CLI
 				puts ""
 				puts "================= #{pizza.name} ================="
 				puts ""
-				puts "#{pizza.address}"
-				puts "#{pizza.telephone}"
-				puts "#{pizza.neighborhood}"
-				puts ""
-				puts "------------------------------------------------------"
+				puts "#{pizza.address}     #{pizza.address_two}"
+				puts "#{pizza.telephone}     #{pizza.telephone_two}"
+				puts "#{pizza.neighborhood}     #{pizza.neighborhood_two}"
+				puts "#{pizza.subway}"        
+				puts "-------------------------------------------------"
 				puts ""
 				puts "#{pizza.description}"
 				puts ""
@@ -59,8 +60,8 @@ class BestPizza::CLI
 		puts "Would you like to see another restaurant? Enter Y or N"
 		input = gets.strip.downcase
 		if input == "y"
-			menu
-		else 
+			list_pizza
+		else
 			thanks
 		end
 	end
