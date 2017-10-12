@@ -1,7 +1,7 @@
 class BestPizza::CLI
 
 	def call
-		BestPizza::Resturant.scrape_pizza
+		BestPizza::Resturant.pizza_restaurants
 		list_pizza
 		menu
 		repeat

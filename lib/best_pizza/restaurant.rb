@@ -3,7 +3,7 @@ class BestPizza::Resturant
 	attr_accessor :name, :description, :area
 
 	def self.pizza_restaurants
-		self.scrape_details
+		self.scrape_pizza
 	end
 
 	def self.scrape_details
@@ -13,17 +13,21 @@ class BestPizza::Resturant
 	end
 
 	def self.scrape_pizza
-		doc = Nokogiri::HTML(open("https://www.timeout.com/newyork/restaurants/best-new-york-pizza"))
+		doc = Nokogiri::HTML(open("https://www.tripsavvy.com/best-pizza-in-new-york-city-1613413"))
 
-			doc.css('article.feature-item').collect do |info| 
-				pizza = self.new
-			  pizza.name = info.css('h3').text
-			  pizza.description = info.css('p').text
-			  pizza.area = info.css('div.listings_flags.xs-text-8').text.strip
-				
-				pizza
+		doc.css('li.ordered-list__item').collect do |info| 
+			pizza = self.new
+		  pizza.name = info.css('h3.ordered-list__header').text.strip
+		  pizza.description = info.css('div.inline-chop_2-0').text.strip
+		  pizza.area = info.css('div.c-mapstack__address').text.strip
+			
+			pizza
 		end
 	end
+
+	 def self.find(id)
+    self.scrape_pizza[id.to_i - 1]
+  end
 end
 
 # def self.scrape_pizza
