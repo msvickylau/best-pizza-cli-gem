@@ -10,19 +10,20 @@ class BestPizza::CLI
 
 	def list_pizza
 		puts ""
-		puts "====================== Best New York Pizza ======================"
-		puts ""
+		puts "================================================="
+		puts "               Best New York Pizza "
+		puts "================================================="
 		@pizzas = BestPizza::Resturant.pizza_restaurants
 		@pizzas.each.with_index(1) do |pizza, i|
-			puts "#{i}. #{pizza.name}" 
+			puts "#{i}. #{pizza.name}" 	
 		end
+		puts "-------------------------------------------------"
 	end
 
 	def menu
 		input = nil
 
 		while input != "exit"
-			puts ""
 			puts "Which delicious pizza restaurant would you like more information on?"
 			
 			input = gets.strip.downcase
@@ -30,18 +31,19 @@ class BestPizza::CLI
 
 			if input.to_i > 0 && input.to_i <= BestPizza::Resturant.pizza_restaurants.size
 				pizza = BestPizza::Resturant.find(input)
-				# restaurant_card(restaurant)
 				puts ""
-				puts "================= #{pizza.name} ================="
-				puts ""
-				puts "#{pizza.address}     #{pizza.address_two}"
-				puts "#{pizza.telephone}     #{pizza.telephone_two}"
-				puts "#{pizza.neighborhood}     #{pizza.neighborhood_two}"
-				puts "#{pizza.subway}"        
+				puts "================================================="
+				puts "                #{pizza.name}" 
+				puts "================================================="
+				puts "#{pizza.address}"
+				puts "#{pizza.telephone}"
+				puts "#{pizza.neighborhood}"
+				puts "#{pizza.subway}"
+				puts "#{pizza.span_one}"
+				puts "#{pizza.span_two}"
 				puts "-------------------------------------------------"
-				puts ""
 				puts "#{pizza.description}"
-				puts ""
+				puts "-------------------------------------------------"
 
 				repeat
 
