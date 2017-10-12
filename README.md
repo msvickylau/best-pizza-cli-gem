@@ -1,6 +1,6 @@
 # BestPizza
 
-This Ruby Gem provides a CLI to view the 25 best pizzas in New York as per Time Out - New York website
+This Ruby Gem provides a CLI to view the 11 best pizzas in New York as per tripsavvy website.
 
 
 
