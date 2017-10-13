@@ -4,8 +4,6 @@ class BestPizza::CLI
 		BestPizza::Restaurant.scrape_pizza
 		list_pizza
 		menu
-		repeat
-		thanks
 	end
 
 	def list_pizza
@@ -22,12 +20,10 @@ class BestPizza::CLI
 
 	def menu
 		input = nil
-
 		while input != "exit"
 			puts "Which delicious pizza restaurant would you like more information on?"
 			
 			input = gets.strip.downcase
-			# if input.to_i.between?(1,11)
 
 			if input.to_i > 0 && input.to_i <= BestPizza::Restaurant.pizza_restaurants.size
 				pizza = BestPizza::Restaurant.find(input)
@@ -39,7 +35,6 @@ class BestPizza::CLI
 				puts "-------------------------------------------------"
 				puts "Description:    #{pizza.description}"
 				puts "-------------------------------------------------"
-
 				repeat
 
 			elsif input == "list"
@@ -47,7 +42,7 @@ class BestPizza::CLI
 			elsif input == "exit"
 				thanks
 			else
-				puts "Not sure what you're looking for, type 1-11, 'list', or 'exit'"
+				puts "Not sure what you're looking for, type 1-26, 'list', or 'exit'"
 			end
 		end		
 	end
