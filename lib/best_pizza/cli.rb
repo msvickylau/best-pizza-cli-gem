@@ -1,7 +1,7 @@
 class BestPizza::CLI
 
 	def call
-		BestPizza::Resturant.scrape_pizza
+		BestPizza::Restaurant.scrape_pizza
 		list_pizza
 		menu
 		repeat
@@ -13,7 +13,7 @@ class BestPizza::CLI
 		puts "================================================="
 		puts "               Best New York Pizza "
 		puts "================================================="
-		@pizzas = BestPizza::Resturant.pizza_restaurants
+		@pizzas = BestPizza::Restaurant.pizza_restaurants
 		@pizzas.each.with_index(1) do |pizza, i|
 			puts "#{i}. #{pizza.name}" 	
 		end
@@ -29,20 +29,15 @@ class BestPizza::CLI
 			input = gets.strip.downcase
 			# if input.to_i.between?(1,11)
 
-			if input.to_i > 0 && input.to_i <= BestPizza::Resturant.pizza_restaurants.size
-				pizza = BestPizza::Resturant.find(input)
+			if input.to_i > 0 && input.to_i <= BestPizza::Restaurant.pizza_restaurants.size
+				pizza = BestPizza::Restaurant.find(input)
 				puts ""
 				puts "================================================="
-				puts "                #{pizza.name}" 
+				puts "             **   #{pizza.name}   **"
 				puts "================================================="
-				puts "#{pizza.address}"
-				puts "#{pizza.telephone}"
-				puts "#{pizza.neighborhood}"
-				puts "#{pizza.subway}"
-				puts "#{pizza.span_one}"
-				puts "#{pizza.span_two}"
+			 	puts "Neighborhood:   #{pizza.area}"
 				puts "-------------------------------------------------"
-				puts "#{pizza.description}"
+				puts "Description:    #{pizza.description}"
 				puts "-------------------------------------------------"
 
 				repeat
