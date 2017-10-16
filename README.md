@@ -1,6 +1,6 @@
 # BestPizza
 
-This Ruby Gem provides a CLI to view the 11 best pizzas in New York as per tripsavvy website.
+This Ruby Gem provides a CLI to view the 26 best pizza resturants in New York as per thrillist website. Users can select from a list of pizza resturants and then view details and location.
 
 
 
