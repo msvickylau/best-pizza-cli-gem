@@ -1,7 +1,9 @@
+require 'pry'
 class BestPizza::CLI
 
 	def call
-		BestPizza::Restaurant.scrape_pizza
+		BestPizza::Controller.scrape_pizza
+		# binding.pry
 		list_pizza
 		menu
 	end
@@ -11,9 +13,9 @@ class BestPizza::CLI
 		puts "================================================="
 		puts "               Best New York Pizza "
 		puts "================================================="
-		@pizzas = BestPizza::Restaurant.pizza_restaurants
-		@pizzas.each.with_index(1) do |pizza, i|
-			puts "#{i}. #{pizza.name}" 	
+		@restaurants = BestPizza::Controller.pizza_restaurants
+		@restaurants.each.with_index(1) do |restaurant, i|
+			puts "#{i}. #{restaurant.name}" 	
 		end
 		puts "-------------------------------------------------"
 	end
@@ -25,15 +27,15 @@ class BestPizza::CLI
 			
 			input = gets.strip.downcase
 
-			if input.to_i > 0 && input.to_i <= BestPizza::Restaurant.pizza_restaurants.size
-				pizza = BestPizza::Restaurant.find(input)
+			if input.to_i.between?(1, 26)
+				restaurant = BestPizza::Controller.find(input)
 				puts ""
 				puts "================================================="
-				puts "             **   #{pizza.name}   **"
+				puts "             **   #{restaurant.name}   **"
 				puts "================================================="
-			 	puts "Neighborhood:   #{pizza.area}"
+			 	puts "Neighborhood:   #{restaurant.area}"
 				puts "-------------------------------------------------"
-				puts "Description:    #{pizza.description}"
+				puts "Description:    #{restaurant.description}"
 				puts "-------------------------------------------------"
 				repeat
 
